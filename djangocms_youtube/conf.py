@@ -8,7 +8,7 @@ from appconf import AppConf
 
 class DjangoCMSYoutubeConf(AppConf):
     PLUGIN_MODULE = _('Generic')
-    PLUGIN_NAME = _('Youtube')
+    PLUGIN_NAME = _('Youtube (Lazyload)')
 
     FIELDSETS = None
     PAGE_ONLY = False
@@ -17,14 +17,14 @@ class DjangoCMSYoutubeConf(AppConf):
     TEXT_ENABLED = False
     ALLOW_CHILDREN = True
     CHILD_CLASSES = None
-    USE_HTTPS = False
+    USE_HTTPS = True
     API_KEY = None
     STORAGE = None
 
     ENABLE_CUSTOM_VIDEO_SIZE = False
 
     TEMPLATES = (
-        ('djangocms_youtube/default.html', _('Default')),
+        ('djangocms_youtube/video.html', _('Default')),
     )
 
     DESCRIPTION_CHOICES = (

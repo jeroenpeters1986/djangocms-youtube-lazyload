@@ -51,7 +51,7 @@ class Youtube(CMSPlugin):
         default=settings.DJANGOCMS_YOUTUBE_DESCRIPTION_CHOICES[0][0], blank=True)
 
     theme = models.CharField(
-        _('Theme'), max_length=100,
+        _('Colorscheme controls'), max_length=100,
         choices=settings.DJANGOCMS_YOUTUBE_THEME_CHOICES,
         default=settings.DJANGOCMS_YOUTUBE_DEFAULT_THEME,
     )
@@ -161,17 +161,6 @@ class Youtube(CMSPlugin):
 
     def get_thumbnail(self):
         return ""
-        thumbnail = self.highest_resolution_thumbnail.get('url', '')
-        protocol = 'https' if settings.DJANGOCMS_YOUTUBE_USE_HTTPS else 'http'
-        if thumbnail.startswith('http'):
-            return thumbnail
-
-        current_site = Site.objects.get_current()
-        return '{protocol}://{domain}{thumbnail}'.format(
-            protocol=protocol,
-            domain=current_site.domain,
-            thumbnail=thumbnail
-        )
 
 
 @python_2_unicode_compatible

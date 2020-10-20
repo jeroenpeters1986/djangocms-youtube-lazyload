@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 from django.http import HttpResponseNotAllowed, JsonResponse
-from django.template.loader import select_template
 from django.utils.translation import ugettext_lazy as _
 
 from cms.plugin_base import CMSPluginBase
@@ -16,6 +15,7 @@ from .models import Youtube
 from .utils import get_video_details
 
 
+@plugin_pool.register_plugin
 class YoutubePlugin(CMSPluginBase):
     model = Youtube
     form = YoutubeModelForm
@@ -41,21 +41,18 @@ class YoutubePlugin(CMSPluginBase):
         if settings.DJANGOCMS_YOUTUBE_ENABLE_CUSTOM_VIDEO_SIZE:
             advanced_option_fields += ('width', 'height', )
 
-        if len(settings.DJANGOCMS_YOUTUBE_TEMPLATES) > 1:
-            advanced_option_fields += ('plugin_template', )
-
         fieldsets = (
             (None, {
                 'fields': ('video_url', )
-            }),
-            (None, {
-                'fields': ('thumbnail',)
             }),
             (None, {
                 'fields': ('title', 'description', 'description_option', )
             }),
             (None, {
                 'fields': advanced_option_fields
+            }),
+            (None, {
+                'fields': ('thumbnail',)
             }),
             (_('Video Meta'), {
                 'classes': ('advanced', 'collapse'),

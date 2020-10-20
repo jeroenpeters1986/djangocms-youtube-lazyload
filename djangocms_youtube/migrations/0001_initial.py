@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('height', models.PositiveIntegerField(help_text='Sets the height of your player, used on some templates where applicable', null=True, verbose_name='Height', blank=True)),
                 ('description', models.TextField(help_text='You can add a Description to your video, to be displayed beneath your video on your page.', null=True, verbose_name='Video Description', blank=True)),
                 ('description_option', models.CharField(default=b'hidden', max_length=50, verbose_name='Description Option', blank=True, choices=[(b'hidden', 'Do Not Display Description'), (b'below', 'Description Below the Video')])),
-                ('theme', models.CharField(default=b'light', max_length=100, verbose_name='Theme', choices=[(b'dark', 'Dark'), (b'light', 'Light')])),
+                ('theme', models.CharField(default=b'light', max_length=100, verbose_name='Colorscheme controls', choices=[(b'dark', 'Dark'), (b'light', 'Light')])),
                 ('plugin_template', models.CharField(default=b'djangocms_youtube/default.html', max_length=255, verbose_name='Template', choices=[(b'djangocms_youtube/default.html', 'Default')])),
                 ('video_data', jsonfield.fields.JSONField(help_text='For advanced users only \u2014 please do not edit this data unless you know what you are doing.', null=True, verbose_name='YouTube Data', blank=True)),
             ],
