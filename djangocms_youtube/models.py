@@ -23,7 +23,6 @@ class Youtube(CMSPlugin):
     title = models.CharField(_('Title'), max_length=150, blank=True)
     thumbnail = models.FileField(
         verbose_name=_('Custom Thumbnail'), blank=True, null=True,
-        on_delete=models.SET_NULL,
         storage=settings.DJANGOCMS_YOUTUBE_STORAGE,
         upload_to='djangocms_youtube',
         help_text=_('Image Overlay - this image will display over the '
