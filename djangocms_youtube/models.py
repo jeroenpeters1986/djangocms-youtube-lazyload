@@ -146,7 +146,7 @@ class Youtube(CMSPlugin):
                 return thumbnails[size]
 
     def get_thumbnails(self):
-        if not self.thumbnail:
+        if not self.thumbnail_id:
             return self.video.get_thumbnails()
 
         return self._generate_thumbnails()
