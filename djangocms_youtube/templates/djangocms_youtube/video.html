@@ -1,4 +1,4 @@
-{% load thumbnail staticfiles sekizai_tags cms_tags %}
+{% load staticfiles sekizai_tags cms_tags %}
 <div class="video-wrapper js-video-wrapper" itemprop="video" itemscope itemtype="http://schema.org/VideoObject" data-video-id="{{ instance.video.get_id }}" data-video-title="{{ instance.title }}">
     <meta itemprop="name" content="{{ instance.get_title }}" />
     <meta itemprop="duration" content="{{ instance.video.get_duration }}" />
@@ -11,9 +11,7 @@
 
     <div class="poster js-video-trigger js-video-poster" style="background-image: url({{ instance.highest_resolution_thumbnail.url }});">
         <div class="playbutton -{{ instance.theme }}">
-            <svg focusable="false" width="21" height="20" viewBox="0 0 21 20" xmlns="http://www.w3.org/2000/svg" class="icon-playbutton">
-                <path class="fill-color" d="M10.5 0C4.977 0 .5 4.477.5 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm-2 14V6l6 4-6 4z" fill="#ffffff" fill-rule="evenodd" opacity=".55"></path>
-            </svg>
+            <svg width="100%" height="100%" viewBox="0 0 21 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;" class="icon-playbutton"><path d="M10.5,0c-5.523,0 -10,4.477 -10,10c0,5.523 4.477,10 10,10c5.523,0 10,-4.477 10,-10c0,-5.523 -4.477,-10 -10,-10ZM8.5,14l0,-8l6,4l-6,4Z" style="fill:#000;fill-opacity:0.55;"/><path d="M8.5,14l0,-8l6,4l-6,4Z" style="fill:#fff;fill-opacity:0.55;"/></svg>
         </div>
     </div>
     <div class="video js-video-target"></div>
@@ -34,15 +32,17 @@
 </div>
 {% endif %}
 
+
 {% addtoblock 'css' %}
 <link rel="stylesheet" href="{% static 'css/djangocms_youtube/djangocms_youtube.css' %}">
 {% endaddtoblock %}
+
 {% addtoblock 'js' %}
 <script src="{% static 'js/djangocms_youtube/greensock-js/TweenMax.js' %}"></script>
 <script src="{% static 'js/djangocms_youtube/jquery.yt-player.js' %}"></script>
 <script type="text/javascript">
-    $(function() {
-        $('.js-video-wrapper').youTubePlayer({hl: '{{ LANGUAGE_CODE|default:"en" }}'});
+    jQuery(function() {
+        jQuery('.js-video-wrapper').youTubePlayer({hl: '{{ LANGUAGE_CODE|default:"en" }}'});
     });
 </script>
 {% endaddtoblock %}

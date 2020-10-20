@@ -1,6 +1,6 @@
 // the semi-colon before function invocation is a safety net against concatenated
 // scripts and/or other plugins which may not be closed properly.
-;(function ($, window, document, undefined) {
+;(function (jQuery, window, document, undefined) {
 
     var youTubePlayer = 'youTubePlayer',
         defaults = {
@@ -31,16 +31,16 @@
         };
 
     function YTPlayer(el, options) {
-        this.el = $(el);
-        this.settings = $.extend(true, {}, defaults, options);
+        this.el = jQuery(el);
+        this.settings = jQuery.extend(true, {}, defaults, options);
         this._defaults = defaults;
         this._name = youTubePlayer;
 
-        this.videoTrigger = $(this.settings.videoTrigger, this.el);
-        this.videoPoster = $(this.settings.videoPoster, this.el);
-        this.videoTarget = $(this.settings.videoTarget, this.el);
-        this.videoEndscreen = $(this.settings.videoEndscreen, this.el);
-        this.endscreenClose = $(this.settings.endscreenClose, this.el);
+        this.videoTrigger = jQuery(this.settings.videoTrigger, this.el);
+        this.videoPoster = jQuery(this.settings.videoPoster, this.el);
+        this.videoTarget = jQuery(this.settings.videoTarget, this.el);
+        this.videoEndscreen = jQuery(this.settings.videoEndscreen, this.el);
+        this.endscreenClose = jQuery(this.settings.endscreenClose, this.el);
 
         this.videoId = this.el.data('video-id');
         this.videoTitle = this.el.data('video-title');
@@ -75,9 +75,9 @@
                             theme: this.settings.theme
                         },
                         events: {
-                            onReady: $.proxy(this.onPlayerReady, this),
-                            onStateChange: $.proxy(this.onPlayerStateChange, this),
-                            onError: $.proxy(this.onError, this),
+                            onReady: jQuery.proxy(this.onPlayerReady, this),
+                            onStateChange: jQuery.proxy(this.onPlayerStateChange, this),
+                            onError: jQuery.proxy(this.onError, this),
                         }
                     });
                 } else {
@@ -166,7 +166,7 @@
             this.fadeOutVideoPoster();
         },
         trackEvent: function (action) {
-            if (!this.settings.googleAnalytics || $.inArray(action, this.trackedEvents) !== -1) {
+            if (!this.settings.googleAnalytics || jQuery.inArray(action, this.trackedEvents) !== -1) {
                 return false;
             }
             this.trackedEvents.push(action);
@@ -200,15 +200,15 @@
         }
     };
 
-    $.fn[youTubePlayer] = function (options) {
+    jQuery.fn[youTubePlayer] = function (options) {
         var tag = document.createElement('script');
         tag.src = 'https://www.youtube.com/iframe_api';
-        $('script:first').before(tag);
+        jQuery('script:first').before(tag);
 
         window.onYouTubeIframeAPIReady = function () {
             return this.each(function () {
-                if (!$.data(this, 'plugin_' + youTubePlayer)) {
-                    $.data(this, 'plugin_' + youTubePlayer, new YTPlayer(this, options));
+                if (!jQuery.data(this, 'plugin_' + youTubePlayer)) {
+                    jQuery.data(this, 'plugin_' + youTubePlayer, new YTPlayer(this, options));
                 }
             })
         }.bind(this);

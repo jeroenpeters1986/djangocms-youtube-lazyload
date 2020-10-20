@@ -10,7 +10,6 @@ from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
 from cms.models import CMSPlugin
-from filer.fields.image import FilerImageField
 from isodate import parse_datetime, parse_duration
 from jsonfield import JSONField
 
@@ -22,10 +21,11 @@ logger = logging.getLogger('djangocms_youtube')
 @python_2_unicode_compatible
 class Youtube(CMSPlugin):
     title = models.CharField(_('Title'), max_length=150, blank=True)
-    thumbnail = FilerImageField(
+    thumbnail = models.FileField(
         verbose_name=_('Custom Thumbnail'), blank=True, null=True,
         on_delete=models.SET_NULL,
-        related_name='djangocms_youtube_thumbnails',
+        storage=settings.DJANGOCMS_YOUTUBE_STORAGE,
+        upload_to='djangocms_youtube',
         help_text=_('Image Overlay - this image will display over the '
                     'video on your site and allow users to see an image '
                     'of your choice before playing the video.'))
@@ -73,7 +73,50 @@ class Youtube(CMSPlugin):
 
     @property
     def video(self):
-        cls = Video(**self.video_data)
+        video_data = self.video_data
+        if not video_data:
+            video_data = {
+                'id': 'C0DPdy98e4c',
+                'snippet': {
+                    'title': 'Video not available',
+                    'description': '',
+                    'channelTitle': '',
+                    'embedHtml': '',
+                    'thumbnails': {
+                        "default": {
+                            "url": "https://i.ytimg.com/vi/C0DPdy98e4c/default.jpg",
+                            "width": 120,
+                            "height": 90
+                        },
+                        "high": {
+                            "url": "https://i.ytimg.com/vi/C0DPdy98e4c/hqdefault.jpg",
+                            "width": 480,
+                            "height": 360
+                        },
+                        "medium": {
+                            "url": "https://i.ytimg.com/vi/C0DPdy98e4c/mqdefault.jpg",
+                            "width": 320,
+                            "height": 180
+                        },
+                        "maxres": {
+                            "url": "https://i.ytimg.com/vi/C0DPdy98e4c/maxresdefault.jpg",
+                            "width": 1280,
+                            "height": 720
+                        },
+                        "standard": {
+                            "url": "https://i.ytimg.com/vi/C0DPdy98e4c/sddefault.jpg",
+                            "width": 640,
+                            "height": 480
+                        }
+                    },
+                    'publishedAt': '1970-00-01T00:00:00',
+                    'tags': ['N/A', 'Not available']
+                },
+                'contentDetails': {
+                    'duration': 'P0YT0H10M',
+                }
+            }
+        cls = Video(**video_data)
         return cls
 
     def _generate_thumbnails(self):
@@ -104,7 +147,7 @@ class Youtube(CMSPlugin):
                 return thumbnails[size]
 
     def get_thumbnails(self):
-        if self.thumbnail_id is None:
+        if not self.thumbnail:
             return self.video.get_thumbnails()
 
         return self._generate_thumbnails()
@@ -118,6 +161,7 @@ class Youtube(CMSPlugin):
         return self.description
 
     def get_thumbnail(self):
+        return ""
         thumbnail = self.highest_resolution_thumbnail.get('url', '')
         protocol = 'https' if settings.DJANGOCMS_YOUTUBE_USE_HTTPS else 'http'
         if thumbnail.startswith('http'):

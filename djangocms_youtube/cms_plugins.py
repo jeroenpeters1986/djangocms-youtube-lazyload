@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from django.http import HttpResponseNotAllowed
+from django.http import HttpResponseNotAllowed, JsonResponse
 from django.template.loader import select_template
 from django.utils.translation import ugettext_lazy as _
 
@@ -15,11 +15,6 @@ from .forms import YoutubeModelForm
 from .models import Youtube
 from .utils import get_video_details
 
-try:
-    from django.http import JsonResponse
-except ImportError:
-    from .compat import JsonResponse
-
 
 class YoutubePlugin(CMSPluginBase):
     model = Youtube
@@ -27,7 +22,7 @@ class YoutubePlugin(CMSPluginBase):
 
     module = settings.DJANGOCMS_YOUTUBE_PLUGIN_MODULE
     name = settings.DJANGOCMS_YOUTUBE_PLUGIN_NAME
-    render_template = settings.DJANGOCMS_YOUTUBE_TEMPLATES[0][0]
+    render_template = 'djangocms_youtube/video.html'
 
     text_enabled = settings.DJANGOCMS_YOUTUBE_TEXT_ENABLED
     page_only = settings.DJANGOCMS_YOUTUBE_PAGE_ONLY
@@ -35,6 +30,8 @@ class YoutubePlugin(CMSPluginBase):
     parent_classes = settings.DJANGOCMS_YOUTUBE_PARENT_CLASSES
     allow_children = settings.DJANGOCMS_YOUTUBE_ALLOW_CHILDREN
     child_classes = settings.DJANGOCMS_YOUTUBE_CHILD_CLASSES
+
+    change_form_template = 'djangocms_youtube/change.html'
 
     def get_fieldsets(self, request, obj=None):
         if settings.DJANGOCMS_YOUTUBE_FIELDSETS:
@@ -68,21 +65,8 @@ class YoutubePlugin(CMSPluginBase):
 
         return fieldsets
 
-    def get_render_template(self, context, instance, placeholder):
-        # returns the first template that exists, falling back to bundled template
-        return select_template([
-            instance.plugin_template,
-            settings.DJANGOCMS_YOUTUBE_TEMPLATES[0][0],
-            'djangocms_youtube/default.html'
-        ])
-
     def get_model_info(self):
-        # module_name is renamed to model_name in Django 1.8
-        app_label = self.model._meta.app_label
-        try:
-            return app_label, self.model._meta.model_name
-        except AttributeError:
-            return app_label, self.model._meta.module_name
+        return self.model._meta.app_label, self.model._meta.module_name
 
     def get_plugin_urls(self):
         from django.conf.urls import url
@@ -119,12 +103,5 @@ class YoutubePlugin(CMSPluginBase):
         else:
             return JsonResponse(response)
 
-    class Media:
-        css = {
-            'all': (
-                'admin/css/djangocms_youtube/changeform.css',
-            )
-        }
-        js = ('admin/js/djangocms_youtube/changeform.js', )
 
 plugin_pool.register_plugin(YoutubePlugin)

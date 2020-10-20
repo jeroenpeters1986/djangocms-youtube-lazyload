@@ -20,7 +20,7 @@ if sys.argv[-1] == 'publish':
     print("  git push --tags")
     sys.exit()
 
-readme = open('README.rst').read()
+readme = open('README.md').read()
 
 setup(
     name='djangocms-youtube',
@@ -38,9 +38,8 @@ setup(
     install_requires=[
         'django-appconf',
         'django-cms>=3.0',
-        'django-filer>=0.9',
         'isodate>=0.5.4',
-        'jsonfield',
+        'jsonfield>=2.1.1',
         'requests',
     ],
     license="BSD",

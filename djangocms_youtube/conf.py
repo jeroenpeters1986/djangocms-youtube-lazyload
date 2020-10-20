@@ -19,6 +19,7 @@ class DjangoCMSYoutubeConf(AppConf):
     CHILD_CLASSES = None
     USE_HTTPS = False
     API_KEY = None
+    STORAGE = None
 
     ENABLE_CUSTOM_VIDEO_SIZE = False
 
