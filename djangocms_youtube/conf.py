@@ -14,7 +14,7 @@ class DjangoCMSYoutubeConf(AppConf):
     PAGE_ONLY = False
     PARENT_CLASSES = None
     REQUIRE_PARENT = False
-    TEXT_ENABLED = False
+    TEXT_ENABLED = True
     ALLOW_CHILDREN = True
     CHILD_CLASSES = None
     USE_HTTPS = True

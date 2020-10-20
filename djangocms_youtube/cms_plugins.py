@@ -99,6 +99,3 @@ class YoutubePlugin(CMSPluginBase):
             return JsonResponse(response, status=e.status_code)
         else:
             return JsonResponse(response)
-
-
-plugin_pool.register_plugin(YoutubePlugin)
