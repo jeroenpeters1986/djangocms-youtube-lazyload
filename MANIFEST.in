@@ -1,0 +1,3 @@
+include AUTHORS.md
+include README.md
+recursive-include djangocms_youtube *.html *js *.css *py
