@@ -66,7 +66,7 @@ class YoutubePlugin(CMSPluginBase):
         return fieldsets
 
     def get_model_info(self):
-        return self.model._meta.app_label, self.model._meta.module_name
+        return self.model._meta.app_label, self.model._meta.model_name
 
     def get_plugin_urls(self):
         from django.conf.urls import url

@@ -17,10 +17,7 @@ class YoutubeVideoURLWidget(forms.TextInput):
         opts = self.model._meta
 
         app_label = opts.app_label
-        try:
-            model_name = opts.model_name
-        except AttributeError:
-            model_name = opts.module_name
+        model_name = opts.model_name
 
         attrs['data-gdata'] = reverse('admin:%s_%s_%s' % (app_label, model_name, 'gdata',))
         return super(YoutubeVideoURLWidget, self).render(name, value, attrs)
