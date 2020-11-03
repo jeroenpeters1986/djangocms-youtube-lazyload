@@ -20,25 +20,25 @@ class YoutubePlugin(CMSPluginBase):
     model = Youtube
     form = YoutubeModelForm
 
-    module = settings.DJANGOCMS_YOUTUBE_PLUGIN_MODULE
-    name = settings.DJANGOCMS_YOUTUBE_PLUGIN_NAME
-    render_template = 'djangocms_youtube/video.html'
+    module = settings.DJANGOCMS_YOUTUBE_LAZYLOAD_PLUGIN_MODULE
+    name = settings.DJANGOCMS_YOUTUBE_LAZYLOAD_PLUGIN_NAME
+    render_template = 'djangocms_youtube_lazyload/video.html'
 
-    text_enabled = settings.DJANGOCMS_YOUTUBE_TEXT_ENABLED
-    page_only = settings.DJANGOCMS_YOUTUBE_PAGE_ONLY
-    require_parent = settings.DJANGOCMS_YOUTUBE_REQUIRE_PARENT
-    parent_classes = settings.DJANGOCMS_YOUTUBE_PARENT_CLASSES
-    allow_children = settings.DJANGOCMS_YOUTUBE_ALLOW_CHILDREN
-    child_classes = settings.DJANGOCMS_YOUTUBE_CHILD_CLASSES
+    text_enabled = settings.DJANGOCMS_YOUTUBE_LAZYLOAD_TEXT_ENABLED
+    page_only = settings.DJANGOCMS_YOUTUBE_LAZYLOAD_PAGE_ONLY
+    require_parent = settings.DJANGOCMS_YOUTUBE_LAZYLOAD_REQUIRE_PARENT
+    parent_classes = settings.DJANGOCMS_YOUTUBE_LAZYLOAD_PARENT_CLASSES
+    allow_children = settings.DJANGOCMS_YOUTUBE_LAZYLOAD_ALLOW_CHILDREN
+    child_classes = settings.DJANGOCMS_YOUTUBE_LAZYLOAD_CHILD_CLASSES
 
-    change_form_template = 'djangocms_youtube/change.html'
+    change_form_template = 'djangocms_youtube_lazyload/cms_youtube_change.html'
 
     def get_fieldsets(self, request, obj=None):
-        if settings.DJANGOCMS_YOUTUBE_FIELDSETS:
-            return settings.DJANGOCMS_YOUTUBE_FIELDSETS
+        if settings.DJANGOCMS_YOUTUBE_LAZYLOAD_FIELDSETS:
+            return settings.DJANGOCMS_YOUTUBE_LAZYLOAD_FIELDSETS
 
         advanced_option_fields = ('theme', )
-        if settings.DJANGOCMS_YOUTUBE_ENABLE_CUSTOM_VIDEO_SIZE:
+        if settings.DJANGOCMS_YOUTUBE_LAZYLOAD_ENABLE_CUSTOM_VIDEO_SIZE:
             advanced_option_fields += ('width', 'height', )
 
         fieldsets = (

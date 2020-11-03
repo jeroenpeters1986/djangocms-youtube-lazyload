@@ -12,10 +12,10 @@ from .exceptions import YoutubeAPI404, YoutubeAPIError
 
 
 def fetch_gdata(resource, parts, identifier):
-    access_token = settings.DJANGOCMS_YOUTUBE_API_KEY
+    access_token = settings.DJANGOCMS_YOUTUBE_LAZYLOAD_API_KEY
 
     if access_token is None:
-        msg = _('Missing DJANGOCMS_YOUTUBE_API_KEY settings')
+        msg = _('Missing DJANGOCMS_YOUTUBE_LAZYLOAD_API_KEY settings')
         raise YoutubeAPIError(500, 'ImproperlyConfigured', force_text(msg))
 
     url_template = '{resource}?part={parts}&fields=items&maxResults=1&id={id}&key={access_token}'

@@ -1,21 +1,22 @@
 djangocms-youtube
 =================
 
-YouTube embed plugin for your django-cms powered site with options for
-custom video thumbnails, analytics, SEO and more.
+Speed up your pageloads with this YouTube embed plugin for your Django CMS 
+powered site. It requires a (free) YouTube Data API Key and also has options 
+for custom video thumbnails and publishing stats to Google Analytics.
 
 Quickstart
 ----------
 
 1.  Install `djangocms-youtube`:
     ```
-        pip install djangocms-youtube
+        pip install djangocms-youtube-lazyload
     ```
-2.  Add `djangocms_youtube` to `INSTALLED_APPS`:
+2.  Add `djangocms_youtube_lazyload` to `INSTALLED_APPS`:
     ```
         INSTALLED_APPS = (
             ...
-            'djangocms_youtube',
+            'djangocms_youtube_lazyload',
             ...
         )
     ```
@@ -26,9 +27,9 @@ Quickstart
 4.  Plugin requires Server API key to be able to use the YouTube Data
     API:
     ```
-        DJANGOCMS_YOUTUBE_API_KEY = '<youtube_data_api_server_key>'
+        DJANGOCMS_YOUTUBE_LAZYLOAD_API_KEY = '<youtube_data_api_server_key>'
     ```
-    You can register an app via
+    Instructions on how to obtain an API key are located here:
     https://developers.google.com/youtube/registering_an_application
 
 Features
@@ -121,7 +122,7 @@ Video Endscreen
 Plugin can have child plugins (i.e other plugins placed inside this
 plugin), rendered as an overlay, when the video finishes. You can
 disable this functionality by overriding
-`DJANGOCMS_YOUTUBE_ALLOW_CHILDREN` in your `settings.py` file
+`DJANGOCMS_YOUTUBE_LAZYLOAD_ALLOW_CHILDREN` in your `settings.py` file
 
 
 Google Analytics

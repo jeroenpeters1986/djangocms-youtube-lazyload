@@ -15,7 +15,7 @@ from jsonfield import JSONField
 
 from .conf import settings
 
-logger = logging.getLogger('djangocms_youtube')
+logger = logging.getLogger('djangocms_youtube_lazyload')
 
 
 @python_2_unicode_compatible
@@ -23,8 +23,8 @@ class Youtube(CMSPlugin):
     title = models.CharField(_('Title'), max_length=150, blank=True)
     thumbnail = models.FileField(
         verbose_name=_('Custom Thumbnail'), blank=True, null=True,
-        storage=settings.DJANGOCMS_YOUTUBE_STORAGE,
-        upload_to='djangocms_youtube',
+        storage=settings.DJANGOCMS_YOUTUBE_LAZYLOAD_STORAGE,
+        upload_to='djangocms_youtube_lazyload',
         help_text=_('Image Overlay - this image will display over the '
                     'video on your site and allow users to see an image '
                     'of your choice before playing the video.'))
@@ -47,18 +47,18 @@ class Youtube(CMSPlugin):
 
     description_option = models.CharField(
         _('Description Option'), max_length=50,
-        choices=settings.DJANGOCMS_YOUTUBE_DESCRIPTION_CHOICES,
-        default=settings.DJANGOCMS_YOUTUBE_DESCRIPTION_CHOICES[0][0], blank=True)
+        choices=settings.DJANGOCMS_YOUTUBE_LAZYLOAD_DESCRIPTION_CHOICES,
+        default=settings.DJANGOCMS_YOUTUBE_LAZYLOAD_DESCRIPTION_CHOICES[0][0], blank=True)
 
     theme = models.CharField(
         _('Colorscheme controls'), max_length=100,
-        choices=settings.DJANGOCMS_YOUTUBE_THEME_CHOICES,
-        default=settings.DJANGOCMS_YOUTUBE_DEFAULT_THEME,
+        choices=settings.DJANGOCMS_YOUTUBE_LAZYLOAD_THEME_CHOICES,
+        default=settings.DJANGOCMS_YOUTUBE_LAZYLOAD_DEFAULT_THEME,
     )
     plugin_template = models.CharField(
         _('Template'), max_length=255,
-        choices=settings.DJANGOCMS_YOUTUBE_TEMPLATES,
-        default=settings.DJANGOCMS_YOUTUBE_TEMPLATES[0][0],
+        choices=settings.DJANGOCMS_YOUTUBE_LAZYLOAD_TEMPLATES,
+        default=settings.DJANGOCMS_YOUTUBE_LAZYLOAD_TEMPLATES[0][0],
     )
 
     video_data = JSONField(
@@ -120,7 +120,7 @@ class Youtube(CMSPlugin):
 
     def _generate_thumbnails(self):
         _thumbnails = {}
-        for name, opts in six.iteritems(settings.DJANGOCMS_YOUTUBE_THUMBNAIL_SIZES):
+        for name, opts in six.iteritems(settings.DJANGOCMS_YOUTUBE_LAZYLOAD_THUMBNAIL_SIZES):
             try:
                 thumb_opts = {
                     'size': (int(opts['width']), int(opts['height'])),

@@ -24,7 +24,7 @@ class DjangoCMSYoutubeConf(AppConf):
     ENABLE_CUSTOM_VIDEO_SIZE = False
 
     TEMPLATES = (
-        ('djangocms_youtube/video.html', _('Default')),
+        ('djangocms_youtube_lazyload/video.html', _('Default')),
     )
 
     DESCRIPTION_CHOICES = (
@@ -65,4 +65,4 @@ class DjangoCMSYoutubeConf(AppConf):
     }
 
     class Meta:
-        prefix = 'djangocms_youtube'
+        prefix = 'djangocms_youtube_lazyload'

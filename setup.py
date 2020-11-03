@@ -4,14 +4,14 @@
 import os
 import sys
 
-import djangocms_youtube
+import djangocms_youtube_lazyload
 
 try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
 
-version = djangocms_youtube.__version__
+version = djangocms_youtube_lazyload.__version__
 
 if sys.argv[-1] == 'publish':
     os.system('python setup.py sdist upload')
@@ -32,7 +32,7 @@ setup(
     author_email='mishbahx@gmail.com',
     url='https://github.com/mishbahr/djangocms-youtube',
     packages=[
-        'djangocms_youtube',
+        'djangocms_youtube_lazyload',
     ],
     include_package_data=True,
     install_requires=[
