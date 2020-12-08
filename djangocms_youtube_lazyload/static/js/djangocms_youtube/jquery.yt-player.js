@@ -108,14 +108,6 @@
         onPlayerReady: function (e) {
             this.isVideoLoaded = true;
             this.videoDuration = this.player.getDuration();
-            this.progressMarkers = {
-                '10% watched': this.videoDuration * 0.1,
-                '25% watched': this.videoDuration * 0.25,
-                '50% watched': this.videoDuration * 0.5,
-                '75% watched': this.videoDuration * 0.75,
-                '90% watched': this.videoDuration * 0.9,
-                'Watch to end': this.videoDuration * 0.99
-            };
             this.playVideo();
         },
         onPlayerStateChange: function (e) {
@@ -126,21 +118,6 @@
                 } else {
                     this.fadeInVideoPoster();
                 }
-            }
-
-            if (e.data == YT.PlayerState.PLAYING && !this.playerTimer) {
-                this.playerTimer = setInterval(function () {
-                    for (var marker in this.progressMarkers) {
-                        if (this.progressMarkers.hasOwnProperty(marker)) {
-                            if (Math.floor(this.progressMarkers[marker]) <= this.player.getCurrentTime()) {
-                                this.trackEvent(marker);
-                            }
-                        }
-                    }
-                }.bind(this), 1000);
-            } else {
-                clearInterval(this.playerTimer);
-                this.playerTimer = false;
             }
         },
         onError: function (e) {
@@ -162,36 +139,7 @@
         },
         playVideo: function () {
             this.player.playVideo();
-            this.trackEvent('Play');
             this.fadeOutVideoPoster();
-        },
-        trackEvent: function (action) {
-            if (!this.settings.googleAnalytics || jQuery.inArray(action, this.trackedEvents) !== -1) {
-                return false;
-            }
-            this.trackedEvents.push(action);
-
-            var trackingData = {
-                hitType: 'event',
-                eventCategory: this.settings.gaCategory,
-                eventLabel: this.videoTitle,
-                eventAction: action
-            };
-
-            if (typeof window[this.settings.dataLayerName] !== 'undefined') {
-                window[this.settings.dataLayerName].push({
-                    'event': trackingData.eventCategory,
-                    'attributes': {
-                        'videoTitle': trackingData.eventLabel,
-                        'videoAction': trackingData.eventAction
-                    }
-                });
-            }
-            if (typeof window['GoogleAnalyticsObject'] !== 'undefined') {
-                var _ga = window['GoogleAnalyticsObject'];
-                window[_ga]('send', trackingData);
-            }
-
         },
         logError: function (message) {
             if (this.settings.debug && typeof console !== 'undefined' && typeof console.error !== 'undefined') {

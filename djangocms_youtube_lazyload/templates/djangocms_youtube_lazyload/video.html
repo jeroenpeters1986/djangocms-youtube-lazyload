@@ -34,15 +34,15 @@
 
 
 {% addtoblock 'css' %}
-<link rel="stylesheet" href="{% static 'css/djangocms_youtube_lazyload/djangocms_youtube_lazyload.css' %}">
+    <link rel="stylesheet" href="{% static 'css/djangocms_youtube_lazyload/djangocms_youtube_lazyload.css' %}">
 {% endaddtoblock %}
 
 {% addtoblock 'js' %}
-<script src="{% static 'js/djangocms_youtube_lazyload/greensock-js/TweenMax.js' %}"></script>
-<script src="{% static 'js/djangocms_youtube_lazyload/jquery.yt-player.js' %}"></script>
-<script type="text/javascript">
-    jQuery(function() {
-        jQuery('.js-video-wrapper').youTubePlayer({hl: '{{ LANGUAGE_CODE|default:"en" }}'});
-    });
-</script>
+    <script src="{% static 'js/djangocms_youtube_lazyload/greensock-js/TweenMax.min.js' %}"></script>
+    <script src="{% static 'js/djangocms_youtube_lazyload/jquery.yt-player.js' %}"></script>
+    <script type="text/javascript">
+        jQuery(function() {
+            jQuery('.js-video-wrapper').youTubePlayer({hl: '{{ LANGUAGE_CODE|default:"en" }}'});
+        });
+    </script>
 {% endaddtoblock %}

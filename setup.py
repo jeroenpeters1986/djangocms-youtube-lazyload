@@ -25,12 +25,12 @@ readme = open('README.md').read()
 setup(
     name='djangocms-youtube',
     version=version,
-    description="""YouTube embed plugin for your django-cms powered site with options
-    for custom video thumbnails, analytics, SEO and more.""",
+    description="""YouTube embed plugin for your Django CMS powered site, 
+        embedding is lazy-loaded, so loading performance is optimal.""",
     long_description=readme,
-    author='Mishbah Razzaque',
-    author_email='mishbahx@gmail.com',
-    url='https://github.com/mishbahr/djangocms-youtube',
+    author='Jeroen Peters',
+    author_email='jeroenpeters1986@gmail.com',
+    url='https://github.com/jeroenpeters1986/djangocms-youtube-lazyload',
     packages=[
         'djangocms_youtube_lazyload',
     ],
@@ -44,13 +44,14 @@ setup(
     ],
     license="BSD",
     zip_safe=False,
-    keywords='djangocms-youtube, YouTube, django-cms, cmsplugin-youtube',
+    keywords='djangocms-youtube-lazyload, YouTube, django-cms, youtube embed, '
+             'video embedding, cmsplugin, cmsplugin-youtube, djangocms-youtube',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Framework :: Django',
-        'Framework :: Django :: 1.6',
         'Framework :: Django :: 1.7',
         'Framework :: Django :: 1.8',
+        'Framework :: Django :: 1.11',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
