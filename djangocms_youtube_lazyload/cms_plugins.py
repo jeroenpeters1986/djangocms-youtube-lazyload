@@ -10,15 +10,15 @@ from cms.plugin_pool import plugin_pool
 
 from .conf import settings
 from .exceptions import YoutubeAPIError
-from .forms import YoutubeModelForm
-from .models import Youtube
+from .forms import YoutubeLazyloadModelForm
+from .models import YoutubeLazyload
 from .utils import get_video_details
 
 
 @plugin_pool.register_plugin
 class YoutubePlugin(CMSPluginBase):
-    model = Youtube
-    form = YoutubeModelForm
+    model = YoutubeLazyload
+    form = YoutubeLazyloadModelForm
 
     module = settings.DJANGOCMS_YOUTUBE_LAZYLOAD_PLUGIN_MODULE
     name = settings.DJANGOCMS_YOUTUBE_LAZYLOAD_PLUGIN_NAME

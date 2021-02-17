@@ -4,11 +4,11 @@ from __future__ import unicode_literals
 from django import forms
 from django.urls import reverse
 
-from .models import Youtube
+from .models import YoutubeLazyload
 
 
 class YoutubeVideoURLWidget(forms.TextInput):
-    model = Youtube
+    model = YoutubeLazyload
 
     def render(self, name, value, attrs=None, renderer=None, **kwargs):
         if attrs is None:

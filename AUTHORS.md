@@ -1,10 +1,12 @@
 Credits
 =======
 
-Development Lead
+Original version
 ----------------
-* Mishbah Razzaque <mishbahx@gmail.com>
+* Jeroen Peters <jeroenpeters1986@gmail.com>
 
-Contributors
-------------
-None yet. Why not be the first?
+Original version
+----------------
+The original version also included a video sitemap and 
+watch-tracking-integration with Google Analytics. 
+* Mishbah Razzaque <mishbahx@gmail.com>

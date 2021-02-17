@@ -6,9 +6,9 @@ from django.utils.translation import ugettext_lazy as _
 from appconf import AppConf
 
 
-class DjangoCMSYoutubeConf(AppConf):
+class DjangoCMSYoutubeLazyloadConf(AppConf):
     PLUGIN_MODULE = _('Generic')
-    PLUGIN_NAME = _('Youtube (Lazyload)')
+    PLUGIN_NAME = _('Youtube (Lazyload) Embed')
 
     FIELDSETS = None
     PAGE_ONLY = False

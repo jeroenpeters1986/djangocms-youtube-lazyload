@@ -19,7 +19,7 @@ logger = logging.getLogger('djangocms_youtube_lazyload')
 
 
 @python_2_unicode_compatible
-class Youtube(CMSPlugin):
+class YoutubeLazyload(CMSPlugin):
     title = models.CharField(_('Title'), max_length=150, blank=True)
     thumbnail = models.FileField(
         verbose_name=_('Custom Thumbnail'), blank=True, null=True,

@@ -23,10 +23,10 @@ if sys.argv[-1] == 'publish':
 readme = open('README.md').read()
 
 setup(
-    name='djangocms-youtube',
+    name='djangocms-youtube-lazyload',
     version=version,
-    description="""YouTube embed plugin for your Django CMS powered site, 
-        embedding is lazy-loaded, so loading performance is optimal.""",
+    description="""YouTube video embed plugin for Django CMS. It uses
+        lazyload embedding, so it's sitespeed impact is minimal""",
     long_description=readme,
     author='Jeroen Peters',
     author_email='jeroenpeters1986@gmail.com',
@@ -45,7 +45,8 @@ setup(
     license="BSD",
     zip_safe=False,
     keywords='djangocms-youtube-lazyload, YouTube, django-cms, youtube embed, '
-             'video embedding, cmsplugin, cmsplugin-youtube, djangocms-youtube',
+             'video embedding, cmsplugin, lazyload, cmsplugin-youtube, '
+             'djangocms-youtube, sitespeed',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Framework :: Django',

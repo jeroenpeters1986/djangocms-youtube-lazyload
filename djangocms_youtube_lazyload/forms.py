@@ -4,14 +4,14 @@ import re
 
 from django import forms
 
-from .models import Youtube
+from .models import YoutubeLazyload
 from .widgets import YoutubeVideoURLWidget
 
 
-class YoutubeModelForm(forms.ModelForm):
+class YoutubeLazyloadModelForm(forms.ModelForm):
 
     class Meta:
-        model = Youtube
+        model = YoutubeLazyload
         fields = '__all__'
         widgets = {
             'video_url': YoutubeVideoURLWidget(),

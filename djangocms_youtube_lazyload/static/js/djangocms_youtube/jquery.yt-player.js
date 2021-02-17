@@ -15,7 +15,6 @@
             endScreenOpacity: 0.85,
             fs: 1,
             gaCategory: 'Videos',
-            googleAnalytics: true,
             hl: 'en',
             iv_load_policy: 3,
             modestbranding: 1,
