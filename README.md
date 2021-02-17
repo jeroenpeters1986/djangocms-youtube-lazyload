@@ -1,6 +1,12 @@
 djangocms-youtube-lazyload
 ==========================
 
+![PyPI](https://img.shields.io/pypi/v/djangocms-youtube-lazyload)
+![PyPI - Status](https://img.shields.io/pypi/status/djangocms-youtube-lazyload)
+![PyPI - Django Version](https://img.shields.io/pypi/djversions/djangocms-youtube-lazyload)
+![PyPI - License](https://img.shields.io/pypi/l/djangocms-youtube-lazyload)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/djangocms-youtube-lazyload)
+
 Speed up your pageloads with this YouTube embed plugin for your Django CMS 
 powered site. It requires a (free) YouTube Data API Key.
 
@@ -11,7 +17,7 @@ Quickstart
     ```
     pip install djangocms-youtube-lazyload
     ```
-2.  Add `djangocms_youtube_lazyload` to `INSTALLED_APPS`:
+1.  Add `djangocms_youtube_lazyload` to `INSTALLED_APPS`:
     ```
     INSTALLED_APPS = (
         ...
@@ -19,25 +25,24 @@ Quickstart
         ...
     )
     ```
-    
-3.  Sync database :
+1.  Sync database :
     ```
     python manage.py migrate
     ```
-    
-4.  Plugin requires Server API key to be able to use the YouTube Data
-    API:
+1.  Collect static files to make sure you can edit your videos with Django CMS
+    ```
+    python manage.py collectstatic
+    ```
+1.  Plugin requires Server API key to be able to use the YouTube Data API
     ```
     DJANGOCMS_YOUTUBE_LAZYLOAD_API_KEY = '<youtube_data_api_server_key>'
     ```
     Instructions on how to obtain an API key are located here:
     https://developers.google.com/youtube/registering_an_application
 
-Features
---------
 
-Reduce Page Load Time
----------------------
+This Youtube plugin reduces Page Load Time
+------------------------------------------
 
 When you embed any YouTube video on your website using standard IFRAME
 tags, you’ll be surprised to know how much extra weight that YouTube
@@ -81,6 +86,7 @@ Full support for schema.org `videoObject` markup.
 ```
 
 See https://developers.google.com/webmasters/videosearch/schema
+
 
 Video Endscreen
 ---------------
