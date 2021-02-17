@@ -19,10 +19,12 @@ Quickstart
         ...
     )
     ```
+    
 3.  Sync database :
     ```
     python manage.py migrate
     ```
+    
 4.  Plugin requires Server API key to be able to use the YouTube Data
     API:
     ```
