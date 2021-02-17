@@ -24,16 +24,17 @@ readme = open('README.md').read()
 
 setup(
     name='djangocms-youtube-lazyload',
+    packages=[
+        'djangocms_youtube_lazyload',
+    ],
     version=version,
+    licence='MIT',
     description="""YouTube video embed plugin for Django CMS. It uses
         lazyload embedding, so it's sitespeed impact is minimal""",
     long_description=readme,
     author='Jeroen Peters',
     author_email='jeroenpeters1986@gmail.com',
     url='https://github.com/jeroenpeters1986/djangocms-youtube-lazyload',
-    packages=[
-        'djangocms_youtube_lazyload',
-    ],
     include_package_data=True,
     install_requires=[
         'django-appconf',
