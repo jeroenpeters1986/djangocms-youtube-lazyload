@@ -1,9 +1,9 @@
 djangocms-youtube-lazyload
 ==========================
 
-![PyPI](https://img.shields.io/pypi/v/djangocms-youtube-lazyload)
+![https://pypi.org/project/djangocms-youtube-lazyload/](https://img.shields.io/pypi/v/djangocms-youtube-lazyload)
+![https://travis-ci.com/github/jeroenpeters1986/djangocms-youtube-lazyload](https://img.shields.io/travis/com/jeroenpeters1986/djangocms-youtube-lazyload)
 ![PyPI - Status](https://img.shields.io/pypi/status/djangocms-youtube-lazyload)
-![PyPI - Django Version](https://img.shields.io/pypi/djversions/djangocms-youtube-lazyload)
 ![PyPI - License](https://img.shields.io/pypi/l/djangocms-youtube-lazyload)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/djangocms-youtube-lazyload)
 

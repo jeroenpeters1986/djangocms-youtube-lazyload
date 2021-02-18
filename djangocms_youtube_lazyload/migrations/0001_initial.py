@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='YoutubeLazyload',
             fields=[
-                ('cmsplugin_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin', on_delete=models.deletion.CASCADE, related_name='djangocms_youtube_lazyload_youtubelazyload')),
+                ('cmsplugin_ptr', models.OneToOneField(auto_created=True, on_delete=models.deletion.CASCADE, parent_link=True, primary_key=True, related_name='djangocms_youtube_lazyload_youtubelazyload', serialize=False, to='cms.CMSPlugin')),
                 ('title', models.CharField(max_length=150, verbose_name='Title', blank=True)),
                 ('thumbnail', models.FileField(help_text='Image Overlay - this image will display over the video on your site and allow users to see an image of your choice before playing the video.', upload_to='djangocms_youtube_lazyload', null=True, verbose_name='Custom Thumbnail', blank=True)),
                 ('video_url', models.URLField(help_text='Paste the URL of the YouTube video', verbose_name='Video URL')),
@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
                 ('description', models.TextField(help_text='You can add a Description to your video, to be displayed beneath your video on your page.', null=True, verbose_name='Video Description', blank=True)),
                 ('description_option', models.CharField(blank=True, choices=[('hidden', 'Do Not Display Description'), ('below', 'Description Below the Video')], default='hidden', max_length=50, verbose_name='Description Option')),
                 ('theme', models.CharField(choices=[('dark', 'Dark'), ('light', 'Light')], default='light', max_length=100, verbose_name='Colorscheme controls'),),
-                ('plugin_template', models.CharField(choices=[('djangocms_youtube_lazyload/video.html', 'Default')], default='djangocms_youtube_lazyload/video.html', max_length=255, verbose_name='Template')),
+                ('plugin_template', models.CharField(choices=[(b'djangocms_youtube_lazyload/video.html', 'Default')], default=b'djangocms_youtube_lazyload/video.html', max_length=255, verbose_name='Template')),
                 ('video_data', jsonfield.fields.JSONField(help_text='For advanced users only \u2014 please do not edit this data unless you know what you are doing.', null=True, verbose_name='YouTube Data', blank=True)),
             ],
             options={
