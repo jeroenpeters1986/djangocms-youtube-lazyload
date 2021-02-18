@@ -14,7 +14,8 @@ except ImportError:
 version = djangocms_youtube_lazyload.__version__
 
 if sys.argv[-1] == 'publish':
-    os.system('python setup.py sdist upload')
+    os.system('python setup.py sdist')
+    os.system('twine upload dist/*')
     print("You probably want to also tag the version now:")
     print("  git tag -a %s -m 'version %s'" % (version, version))
     print("  git push --tags")
@@ -31,7 +32,7 @@ setup(
     description='DjangoCMS YouTube video embed plugin with minimal impact',
     long_description_content_type='text/markdown',
     long_description=readme,
-    licence='MIT',
+    licence='BSD',
     author='Jeroen Peters',
     author_email='jeroenpeters1986@gmail.com',
     url='https://github.com/jeroenpeters1986/djangocms-youtube-lazyload',
@@ -50,7 +51,7 @@ setup(
              'video embedding, cmsplugin, lazyload, cmsplugin-youtube, '
              'djangocms-youtube, sitespeed',
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Framework :: Django',
         'Framework :: Django :: 1.11',
         'Framework :: Django :: 2.2',
@@ -62,6 +63,10 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Framework :: Django CMS',
+        'Framework :: Django CMS :: 3.6',
+        'Framework :: Django CMS :: 3.7',
+        'Framework :: Django CMS :: 3.8',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
