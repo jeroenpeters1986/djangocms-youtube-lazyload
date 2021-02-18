@@ -16,7 +16,7 @@ from .utils import get_video_details
 
 
 @plugin_pool.register_plugin
-class YoutubePlugin(CMSPluginBase):
+class YoutubeLazyloadPlugin(CMSPluginBase):
     model = YoutubeLazyload
     form = YoutubeLazyloadModelForm
 
