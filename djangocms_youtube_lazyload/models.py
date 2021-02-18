@@ -6,12 +6,12 @@ import six
 
 from django.contrib.sites.models import Site
 from django.db import models
-from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
 from cms.models import CMSPlugin
 from isodate import parse_datetime, parse_duration
 from jsonfield import JSONField
+from six import python_2_unicode_compatible
 
 from .conf import settings
 
