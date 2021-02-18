@@ -17,6 +17,7 @@ HELPER_SETTINGS = {
         ('test_page.html', 'Normal page'),
     ),
     'LANGUAGE_CODE': 'en',
+    'SECRET_KEY': 'sfosaidfn9sfu90asunf9saunfisunfoiunfsadf',
 }
 
 
