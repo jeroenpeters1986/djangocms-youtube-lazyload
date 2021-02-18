@@ -29,10 +29,10 @@ HELPER_SETTINGS = {
 }
 
 
-def run():
+def test():
     from app_helper import runner
     runner.cms('djangocms_youtube_lazyload')
 
 
 if __name__ == '__main__':
-    run()
+    test()

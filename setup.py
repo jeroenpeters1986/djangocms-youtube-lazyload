@@ -45,6 +45,7 @@ setup(
     ],
     license="BSD",
     zip_safe=False,
+    test_suite='tests.settings.test',
     keywords='djangocms-youtube-lazyload, YouTube, django-cms, youtube embed, '
              'video embedding, cmsplugin, lazyload, cmsplugin-youtube, '
              'djangocms-youtube, sitespeed',
