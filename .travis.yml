@@ -7,6 +7,8 @@ jobs:
   include:
     - python: 3.6
       env: TOX_ENV='flake8'
+    - python: 3.6
+      env: DJANGO='dj111' CMS='cms36'
     # Django 2.2
     - python: 3.6
       env: DJANGO='dj22' CMS='cms37'
