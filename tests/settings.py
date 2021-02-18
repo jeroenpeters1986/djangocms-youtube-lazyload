@@ -23,6 +23,7 @@ HELPER_SETTINGS = {
     'CMS_TEMPLATES': (
         ('test_page.html', 'Normal page'),
     ),
+    'AUTH_USER_MODEL': 'auth.User',
     'LANGUAGE_CODE': 'en',
     'SECRET_KEY': 'sfosaidfn9sfu90asunf9saunfisunfoiunfsadf',
 }
