@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                 ('description', models.TextField(help_text='You can add a Description to your video, to be displayed beneath your video on your page.', null=True, verbose_name='Video Description', blank=True)),
                 ('description_option', models.CharField(blank=True, choices=[('hidden', 'Do Not Display Description'), ('below', 'Description Below the Video')], default='hidden', max_length=50, verbose_name='Description Option')),
                 ('theme', models.CharField(choices=[('dark', 'Dark'), ('light', 'Light')], default='light', max_length=100, verbose_name='Colorscheme controls'),),
-                ('plugin_template', models.CharField(choices=[(b'djangocms_youtube_lazyload/video.html', 'Default')], default=b'djangocms_youtube_lazyload/video.html', max_length=255, verbose_name='Template')),
+                ('plugin_template', models.CharField(choices=[('djangocms_youtube_lazyload/video.html', 'Default')], default='djangocms_youtube_lazyload/video.html', max_length=255, verbose_name='Template')),
                 ('video_data', jsonfield.fields.JSONField(help_text='For advanced users only \u2014 please do not edit this data unless you know what you are doing.', null=True, verbose_name='YouTube Data', blank=True)),
             ],
             options={
