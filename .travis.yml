@@ -8,24 +8,15 @@ matrix:
       env: TOX_ENV='flake8'
     - python: 3.5
       env: TOX_ENV='isort'
+
     # Django 1.11
     - python: 3.5
-      env: DJANGO='dj111' CMS='cms34'
-    - python: 3.5
-      env: DJANGO='dj111' CMS='cms35'
-    - python: 3.5
       env: DJANGO='dj111' CMS='cms36'
-    - python: 3.5
-      env: DJANGO='dj111' CMS='cms40'
 
     - python: 3.4
-      env: DJANGO='dj111' CMS='cms34'
-    - python: 3.4
       env: DJANGO='dj111' CMS='cms35'
     - python: 3.4
       env: DJANGO='dj111' CMS='cms36'
-    - python: 3.4
-      env: DJANGO='dj111' CMS='cms40'
 
     # Django 2.0
     - python: 3.4
@@ -34,22 +25,12 @@ matrix:
       env: DJANGO='dj20' CMS='cms36'
     - python: 3.6
       env: DJANGO='dj20' CMS='cms36'
-    - python: 3.4
-      env: DJANGO='dj20' CMS='cms40'
-    - python: 3.5
-      env: DJANGO='dj20' CMS='cms40'
-    - python: 3.6
-      env: DJANGO='dj20' CMS='cms40'
 
     # Django 2.1
     - python: 3.5
       env: DJANGO='dj21' CMS='cms36'
     - python: 3.6
       env: DJANGO='dj21' CMS='cms36'
-    - python: 3.5
-      env: DJANGO='dj21' CMS='cms40'
-    - python: 3.6
-      env: DJANGO='dj21' CMS='cms40'
 
 cache:
   directories:
