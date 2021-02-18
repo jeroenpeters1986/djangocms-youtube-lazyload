@@ -1,5 +1,9 @@
 #!/usr/bin/env python
-from __future__ import division, print_function, unicode_literals
+# -*- coding: utf-8 -*-
+
+
+def gettext(s):
+    return s
 
 
 HELPER_SETTINGS = {
@@ -22,7 +26,7 @@ HELPER_SETTINGS = {
 
 
 def run():
-    from djangocms_helper import runner
+    from app_helper import runner
     runner.cms('djangocms_youtube_lazyload')
 
 
