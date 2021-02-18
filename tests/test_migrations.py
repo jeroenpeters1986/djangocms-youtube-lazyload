@@ -11,7 +11,6 @@ class MigrationTestCase(TestCase):
     def test_for_missing_migrations(self):
         output = StringIO()
         options = {
-            'app_label': 'djangocms_youtube_lazyload',
             'interactive': False,
             'dry_run': True,
             'stdout': output,
@@ -19,7 +18,7 @@ class MigrationTestCase(TestCase):
         }
 
         try:
-            call_command('makemigrations', **options)
+            call_command('makemigrations', 'djangocms_youtube_lazyload', **options)
         except SystemExit as e:
             status_code = str(e)
         else:
