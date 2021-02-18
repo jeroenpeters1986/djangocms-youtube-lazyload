@@ -1,9 +1,15 @@
 from distutils.version import LooseVersion
 
+from django.template import engines
+from django.test import TestCase
 from django import VERSION as DJANGO_VERSION
 
 from cms.api import add_plugin, create_page
 from cms.test_utils.testcases import CMSTestCase
+from cms.models import CMSPlugin, Title
+from cms.models.placeholdermodel import Placeholder
+from cms.plugin_base import CMSPluginBase
+from cms.plugin_pool import plugin_pool
 
 from djangocms_youtube_lazyload.models import YoutubeLazyload
 
