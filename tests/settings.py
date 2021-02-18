@@ -14,11 +14,9 @@ HELPER_SETTINGS = {
         }]
     },
     'CMS_TEMPLATES': (
-        ('test_fullwidth.html', 'Fullwidth'),
         ('test_page.html', 'Normal page'),
     ),
     'LANGUAGE_CODE': 'en',
-    'EMAIL_BACKEND': 'django.core.mail.backends.dummy.EmailBackend',
 }
 
 
