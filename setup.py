@@ -37,6 +37,7 @@ setup(
     url='https://github.com/jeroenpeters1986/djangocms-youtube-lazyload',
     include_package_data=True,
     install_requires=[
+        'Django<2',
         'django-appconf',
         'django-cms>=3.0',
         'isodate>=0.5.4',
