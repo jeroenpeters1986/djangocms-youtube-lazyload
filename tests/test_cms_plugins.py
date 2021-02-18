@@ -4,6 +4,7 @@ from django.template import engines
 from django.test import TestCase
 from django import VERSION as DJANGO_VERSION
 
+import cms
 from cms.api import add_plugin, create_page
 from cms.test_utils.testcases import CMSTestCase
 from cms.models import CMSPlugin, Title
