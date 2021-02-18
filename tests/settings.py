@@ -1,9 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", __file__)
-import django
-django.setup()
 
 def gettext(s):
     return s
