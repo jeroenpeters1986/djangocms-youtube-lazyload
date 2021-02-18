@@ -1,8 +1,6 @@
 from distutils.version import LooseVersion
 
 from django import VERSION as DJANGO_VERSION
-from django.contrib.auth.models import User
-from django.core import mail
 
 from cms.api import add_plugin, create_page
 from cms.test_utils.testcases import CMSTestCase

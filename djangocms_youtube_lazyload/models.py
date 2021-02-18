@@ -11,8 +11,6 @@ from django.utils.translation import ugettext_lazy as _
 from isodate import parse_datetime, parse_duration
 from jsonfield import JSONField
 
-from cms.models import CMSPlugin
-
 from .conf import settings
 
 
