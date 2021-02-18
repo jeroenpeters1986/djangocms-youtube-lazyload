@@ -15,7 +15,6 @@ class MigrationTestCase(TestCase):
             'dry_run': True,
             'stdout': output,
             'check_changes': True,
-            'verbosity': 3
         }
 
         try:
