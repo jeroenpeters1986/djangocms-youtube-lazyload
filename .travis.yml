@@ -12,7 +12,7 @@ cache:
     - $HOME/.wheelhouse
 
 install:
-  - pip install coverage isort tox pytest-django
+  - pip install coverage isort tox
   - "if [[ $TRAVIS_PYTHON_VERSION == '2.7' ]]; then export PY_VER=py27; fi"
   - "if [[ ${DJANGO}z != 'z' ]]; then export TOX_ENV=$PY_VER-$DJANGO-$CMS; fi"
 
