@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
+import django.db.models.deletion
 
 import jsonfield.fields
 
@@ -16,7 +17,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='YoutubeLazyload',
             fields=[
-                ('cmsplugin_ptr', models.OneToOneField(auto_created=True, on_delete=models.deletion.CASCADE, parent_link=True, primary_key=True, related_name='djangocms_youtube_lazyload_youtubelazyload', serialize=False, to='cms.CMSPlugin')),
+                ('cmsplugin_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, related_name='djangocms_youtube_lazyload_youtubelazyload', serialize=False, to='cms.CMSPlugin')),
                 ('title', models.CharField(max_length=150, verbose_name='Title', blank=True)),
                 ('thumbnail', models.FileField(help_text='Image Overlay - this image will display over the video on your site and allow users to see an image of your choice before playing the video.', upload_to='djangocms_youtube_lazyload', null=True, verbose_name='Custom Thumbnail', blank=True)),
                 ('video_url', models.URLField(help_text='Paste the URL of the YouTube video', verbose_name='Video URL')),
