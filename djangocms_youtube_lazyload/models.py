@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 
 import logging
 
-from cms.models import CMSPlugin
 from django.contrib.sites.models import Site
 from django.db import models
 from django.utils import six
@@ -12,7 +11,10 @@ from django.utils.translation import ugettext_lazy as _
 from isodate import parse_datetime, parse_duration
 from jsonfield import JSONField
 
+from cms.models import CMSPlugin
+
 from .conf import settings
+
 
 logger = logging.getLogger('djangocms_youtube_lazyload')
 
