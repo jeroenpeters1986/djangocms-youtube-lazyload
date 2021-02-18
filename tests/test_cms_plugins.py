@@ -9,7 +9,7 @@ from cms.test_utils.testcases import CMSTestCase
 from djangocms_youtube_lazyload.models import YoutubeLazyload
 
 DJANGO_111 = DJANGO_VERSION[:2] >= (1, 11)
-CMS_3_6 = LooseVersion(cms.__version__) < LooseVersion('4.0')
+CMS_3_6 = LooseVersion(cms.__version__) < LooseVersion('3.7')
 
 
 class YoutubeLazyloadPluginTestCase(CMSTestCase):
