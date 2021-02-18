@@ -20,4 +20,5 @@ script:
   - tox -e $TOX_ENV
 
 after_success:
+  - python --version
   - bash <(curl -s https://codecov.io/bash)
