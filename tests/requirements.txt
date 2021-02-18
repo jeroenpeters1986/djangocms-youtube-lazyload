@@ -3,6 +3,5 @@ djangocms-admin-style
 django-appconf
 django-app-helper>=1.1.0
 six
-isort
 flake8
 jsonfield

@@ -7,8 +7,6 @@ jobs:
   include:
     - python: 3.5
       env: TOX_ENV='flake8'
-    - python: 3.5
-      env: TOX_ENV='isort'
     # Django 2.2
     - python: 3.6
       env: DJANGO='dj22' CMS='cms37'
